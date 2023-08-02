@@ -10,7 +10,7 @@ logger = settings.logging.getLogger(__name__)
 
 class TemporaryVoice(commands.Cog):
     temporary_channels = []
-    channel_list = ["DMZ", "DMZ(3)", "MP", "Geb.21", "Beutegeld", "Rebirth", "Koop"]
+    channel_list = ["DMZ", "DMZ(3)", "BR", "MP", "Geb.21", "Beutegeld", "Rebirth", "Koop"]
 
     def __init__(self, bot):
         self.bot = bot
