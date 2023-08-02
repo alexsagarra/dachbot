@@ -7,21 +7,23 @@ logger = settings.logging.getLogger(__name__)
 
 # Intents.voice_states is required!
 
-class TemporaryVoice(commands.Cog):
 
+class TemporaryVoice(commands.Cog):
     temporary_channels = []
-    channel_list = ["DMZ","MP","Geb.21","Beutegeld","Rebirth","Koop"]
+    channel_list = ["DMZ", "DMZ(3)", "MP", "Geb.21", "Beutegeld", "Rebirth", "Koop"]
 
     def __init__(self, bot):
         self.bot = bot
 
     @commands.Cog.listener()
-    async def on_voice_state_update(self, member: discord.Member, before: discord.VoiceState, after: discord.VoiceState)    :
+    async def on_voice_state_update(
+        self, member: discord.Member, before: discord.VoiceState, after: discord.VoiceState
+    ):
         possible_channel_name = f"{member.nick}'s area"
         if after.channel:
-            join_name = after.channel.name.strip(' erstellen')
-            join_name = join_name.strip('➕')
-            print("join_name:",join_name)
+            join_name = after.channel.name.strip(" erstellen")
+            join_name = join_name.strip("➕")
+            print("join_name:", join_name)
 
             if join_name in TemporaryVoice.channel_list:
                 prefix = join_name
@@ -31,16 +33,15 @@ class TemporaryVoice(commands.Cog):
                 guild_id = self.bot.guilds[0]
                 typecount = {}
 
-                
                 for channel in self.bot.guilds[0].voice_channels:
                     for channeltypes in TemporaryVoice.channel_list:
                         typecount[channeltypes] = []
                         if channeltypes in channel.name:
                             typecount[channeltypes].append(channel)
-                
+
                 pp(typecount[join_name])
-                print("strip1",join_name)
-                count = len(typecount[join_name])+1
+                print("strip1", join_name)
+                count = len(typecount[join_name]) + 1
                 print("count: ", join_name, " --> ", count)
 
                 # for guild in self.bot.guilds:
@@ -49,7 +50,6 @@ class TemporaryVoice(commands.Cog):
                 #             print("------------------------")
                 #             pp(channel)
 
-                
                 # count = 1
 
                 possible_channel_name = f"{prefix} #{str(count)} - {user}"

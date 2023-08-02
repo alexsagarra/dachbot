@@ -3,6 +3,10 @@ pip install --upgrade pip
 pip install discord.py[voice]
 pip install python-dotenv
 
+import enviroment variables:
+export DISCORD_xxx=xxxxx
+mkdir logs
+
 # GIT
 
 git init
@@ -17,6 +21,10 @@ git push -u origin main
 server settings
 https://cloud.digitalocean.com/droplets/
 164.90.238.9
+
+apt install python3.10-venv
+pip
+pip install -r requirements.txt
 
 ## SSH
 
