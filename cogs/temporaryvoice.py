@@ -11,6 +11,7 @@ logger = settings.logging.getLogger(__name__)
 class TemporaryVoice(commands.Cog):
     temporary_channels = []
     channel_list = [
+        "MW3",
         "DMZ",
         "DMZ(3)",
         "DMZ(H)",
